@@ -58,6 +58,11 @@ class RequestsTransport(TransportBase, ABC):
         self, body, url, auth=None, headers=None, method="post", timeout=30, **kwargs
     ):
         send = getattr(requests, method)
+        log.info(url)
+        log.info(headers)
+        log.info(auth)
+        log.info(body)
+        log.info(kwargs)
         return send(
             url, headers=headers, auth=auth, data=body, timeout=timeout, **kwargs
         )
